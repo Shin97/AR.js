@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <!-- iOS has a lot of restrictions on playing videos in the browser. To play an inline video texture, we must: -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>和盟賀卡</title>
+
+  <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+  <script src="js/aframe-ar.js"></script>
+  <script src="js/aframe-extras.loaders.min-ar.js"></script>
+</head>
+
+<body onLoad="javascript:playVideo();">
+
+  <a-scene id="a-scene" embedded arjs="debugUIEnabled:false; sourceType: webcam;" vr-mode-ui="enabled: false">
+
+    <a-assets>
+      <video loop autoplay muted id="penguin-sledding" src="image/HappyNewYear.mp4"></video>
+    </a-assets>
+
+    <a-marker preset='custom' type='pattern' url="marker/dark_qrcode.patt">
+
+      <!-- <a-entity position="0 0 0" rotation="-90 0 0" geometry="primitive:plane;width:1;height:0;" material="shader:gif;src:url(image/happynewyear.gif);transparent:true;opacity:1;"></a-entity> -->
+      <!-- <a-entity position="0 0 0" rotation="-90 0 0" geometry="primitive:plane;" material="shader:gif;src:url(image/happynewyear.gif);transparent:false"></a-entity> -->
+      <a-video position="0 0 0" rotation="-105 0 0"  src="#penguin-sledding" width="1.4" height="1"></a-video>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+
+  </a-scene>
+
+  <!-- <button onclick="playVideo()" type="button" style="position:absolute;bottom:10px;right:10px;">Play</button> -->
+
+</body>
+
+<script>
+  var vid = document.getElementById("penguin-sledding");
+  //var as = document.getElementsByTagName('a-scene')[0].attributes.arjs
+
+  function playVideo() {
+    vid.play();
+  }
+
+</script>
+
+</html>
