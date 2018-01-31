@@ -5910,7 +5910,7 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 		else console.assert(false)
 		onError({
 			name: '',
-			message: 'WebRTC issue-! '+fctName+' not present in your browser'
+			message: 'Sorry! ' + fctName + ' 不支援的瀏覽器(支援Google Chrome 29, Mozilla Firefox 24, iOS 11 以上)'
 		})
 		return null
 	}
