@@ -5,7 +5,6 @@
   </head>
 <body onLoad="javascript:checkFunction();">
   <p>Click the button to display the user-agent header sent by the browser to the server.</p>
-  <button onclick="myFunction()">Try it</button>
   <p id="demo"></p>
 
   <script>
@@ -13,7 +12,7 @@
       var ua = navigator.userAgent.toLowerCase();
       var isAndroid = ua.match("android");
       
-      // if( isAndroid ) {
+      if( isAndroid ) {
 
         var isChrome  = ua.match("chrome");
         var isSamsung = ua.match("samsung");
@@ -26,7 +25,6 @@
             type: "GET",
             dataType: 'text',
             success: function (msg) {
-              console.log(msg)
               if(msg == '1') {
                 alert('請關閉data saver');
               }                
@@ -37,7 +35,7 @@
             }
           });
         }
-      // } 
+      } 
 
     }
   </script>
