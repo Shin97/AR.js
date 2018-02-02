@@ -40,6 +40,33 @@
   var vid = document.getElementById("penguin-sledding");
   function playVideo() {
     vid.play();
+    var ua = navigator.userAgent.toLowerCase();
+    var isAndroid = ua.match("android");
+
+    if (isAndroid) {
+      var isChrome = ua.match("chrome");
+      var isSamsung = ua.match("samsung");
+
+      if (isSamsung) {
+        alert("如無法顯示，請使用Chrome瀏覽器")
+      } else if (isChrome) {
+        var URLs = "https://59.124.115.145/4download/get_header.php";
+        $.ajax({
+          url: URLs,
+          type: "GET",
+          dataType: 'text',
+          success: function (msg) {
+            if (msg == '1') {
+              alert('請至設定關閉data saver');
+            }
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            console.log('error:' + xhr.status);
+            console.log('error:' + thrownError);
+          }
+        });
+      }
+    } 
   }
 
 </script>
