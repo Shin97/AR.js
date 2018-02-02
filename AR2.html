@@ -39,7 +39,7 @@
 <script>
     var vid = document.getElementById("penguin-sledding");
     function playVideo() {
-        vid.play();
+        
         var ua = navigator.userAgent.toLowerCase();
         var isAndroid = ua.match("android");
 
@@ -66,7 +66,10 @@
                     }
                 });
             }
-        } 
+        } else {
+            vid.play();
+        }
+        
     }
 </script>
 
