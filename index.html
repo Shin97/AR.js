@@ -3,38 +3,42 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
   </head>
-<body>
+<body onLoad="javascript:checkFunction();">
   <p>Click the button to display the user-agent header sent by the browser to the server.</p>
   <button onclick="myFunction()">Try it</button>
   <p id="demo"></p>
 
   <script>
-    function myFunction() {
+    function checkFunction() {
       var ua = navigator.userAgent.toLowerCase();
-      var isAndroid = ua.indexOf("android");
+      var isAndroid = ua.match("android");
       
-      if( isAndroid ) {
+      // if( isAndroid ) {
 
-        var isChrome = ua.indexOf("samsung");
-        var isSamsung = ua.indexOf("samsung");
+        var isChrome  = ua.match("chrome");
+        var isSamsung = ua.match("samsung");
 
         if(isSamsung) {
-          alert("如無法顯示，請使用Ｃhrome瀏覽器");
-        } else {
+          alert("如無法顯示，請使用Chrome瀏覽器");
+        } else if (isChrome) {
           $.ajax({
             url: "http://59.124.115.145/4download/get_header.php",
             type: "GET",
             dataType: 'text',
             success: function (msg) {
-              alert(msg);
+              console.log(msg)
+              if(msg == '1') {
+                alert('請關閉data saver');
+              }                
             },
             error: function (xhr, ajaxOptions, thrownError) {
-              alert(xhr.status);
-              alert(thrownError);
+              console.log(xhr.status);
+              console.log(thrownError);
             }
           });
         }
-      } 
+      // } 
+
     }
   </script>
 
