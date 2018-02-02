@@ -7,13 +7,11 @@
 
   <script>
     function myFunction() {
-      if( navigator.userAgent.match(/os\s+(\d+)/i)[1] - 0 ) {
-        document.getElementById("demo").innerHTML = "iOS"
-      } else {
-        document.getElementById("demo").innerHTML = "Not iOS"
-      }
-      var x = "User-agent header sent: " + navigator.userAgent;
-      document.getElementById("demo").innerHTML = x;
+      var ua = navigator.userAgent.toLowerCase();
+      var isAndroid = ua.indexOf("android");
+      if( isAndroid ) {
+        alert(ua);
+      } 
     }
   </script>
 
