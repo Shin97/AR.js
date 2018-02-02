@@ -9,8 +9,11 @@
     function myFunction() {
       var ua = navigator.userAgent.toLowerCase();
       var isAndroid = ua.indexOf("android");
+      var isChrome = ua.indexOf("chrome");
       if( isAndroid ) {
-        alert(navigator.userAgent);
+        if(!isChrome) {
+          alert("如無法顯示，請使用Ｃhrome瀏覽器");
+        }
       } 
     }
   </script>
