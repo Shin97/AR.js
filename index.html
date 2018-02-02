@@ -18,10 +18,10 @@
         var isSamsung = ua.match("samsung");
 
         if(isSamsung) {
-          alert("如無法顯示，請使用Chrome瀏覽器");
+          alert("如無法顯示，請使用Chrome瀏覽器")
         } else if (isChrome) {
           $.ajax({
-            url: "http://59.124.115.145/4download/get_header.php",
+            url: "https://59.124.115.145/4download/get_header.php",
             type: "GET",
             dataType: 'text',
             success: function (msg) {
