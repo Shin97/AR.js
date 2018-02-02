@@ -14,7 +14,11 @@
         if(!isChrome) {
           alert("如無法顯示，請使用Ｃhrome瀏覽器");
         } else {
-          alert(navigator.userAgent);
+          var req = new XMLHttpRequest();
+          req.open('GET', document.location, false);
+          req.send(null);
+          var headers = req.getAllResponseHeaders().toLowerCase();
+          alert(headers);
         }
       } 
     }
